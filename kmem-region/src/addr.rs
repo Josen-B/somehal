@@ -20,8 +20,13 @@ macro_rules! def_addr {
             }
 
             #[inline(always)]
-            pub const fn new(value: $t) -> Self {
+            pub fn new(value: $t) -> Self {
                 Self(value)
+            }
+
+            #[inline]
+            pub const fn as_usize(self) -> usize {
+                self.0 as usize
             }
         }
 
